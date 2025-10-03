@@ -21,3 +21,4 @@ rf_model_outputs_log/
 rf_model_outputs_raw/
 *.joblib
 *.pkl
+.DS_Store
