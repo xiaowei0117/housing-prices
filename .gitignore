@@ -13,12 +13,13 @@ data/
 .env
 kaggle.json
 
-#notebook
-*.ipynb
 # Model artifacts
 rf_model_outputs/
 rf_model_outputs_log/
 rf_model_outputs_raw/
+xgb_clean_outputs/
+xgb_model/
+
 *.joblib
 *.pkl
 .DS_Store

@@ -6,7 +6,7 @@ The goal of this competition is to predict house sale prices based on various pr
 ## 📂 Project Structure
 ├── data/              # Dataset folder (not uploaded to GitHub)
 ├── eda_outputs/       # EDA report, plot images
-├── pipelines/         # Python scripts (EDA, data cleaning, modeling, RF LOG VS RAW, diagnostic, predict)
+├── pipelines/         # Python scripts (EDA, data cleaning, modeling, RF LOG VS RAW, diagnostic, predict, XGBoost)
 ├── rf_clean_outputs
 ├── rf_compare_outputs
 └── README.md          # Project documentation
@@ -20,19 +20,14 @@ Main files:
 •	test.csv: Test data with features (target values not provided)
 •	sample_submission.csv: Example submission file
  
-## 🔧 How to Run
-### 1. Clone the repository
-git clone https://github.com/<your-username>/housing-prices-kaggle.git
-cd housing-prices-kaggle
-### 2. Install dependencies
-pip install -r requirements.txt
-### 3. Download the dataset
+## 🔧 Ramdom Forest
+### 1. Download the dataset
 Place the train.csv and test.csv files inside the data/ folder.
-### 4. Run Python scripts
+### 2. Run Python scripts
 #### a. prepares the clean data for train.csv
 python pipelines/clean_for_random_forest.py 
 --input data/train.csv 
---outdir rf_clean_outputs 
+--outdir rf_clean_outputs`
 --target SalePrice
 
 #### b. generates the models
@@ -84,6 +79,12 @@ python pipelines/predict_rf_from_clean.py \
   --feat-names rf_clean_outputs/feature_names.txt \
   --out data/submission.csv
 
+## XGBoost
+
+### Option 1: Run jupyter notebook kaggle_minimal_xgb.ipynb
+
+### Option 2: Run clean_only_xgb.ipynb, train_xgb_from_parquet.ipynb, predict_xgb_from parquet.ipynb
+
  
 ## 🧠 Methods & Models
 •	Data Cleaning: handling missing values, rare category group, No garage: GarageYrBlt = 0, LotFrontage: filled with median of Neighborhood, Set cap for GrLivArea, 
@@ -95,7 +96,8 @@ o	Random Forest with log
  
 ## 📈 Results
 Best submission on Kaggle achieved:
-•	RMSE: 
+•	RMSE(RF): 16279
+•	RMSE(XGB): 14310
  
 ## 📜 License
 This project is for learning and research purposes only. Please follow the Kaggle Terms of Service.
